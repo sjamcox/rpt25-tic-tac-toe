@@ -51,8 +51,27 @@ class Board {
     });
   }
 
+  checkDiagonalWin() {
+    if (this.grid[0][0] === this.grid[1][1] && this.grid[0][0] === this.grid[2][2]) {
+      if (this.grid[0][0] === 'X') {
+        this.winner = 'X';
+      } else if (this.grid[0][0] === 'O') {
+        this.winner = 'O';
+      }
+    }
+    if (this.grid[0][2] === this.grid[1][1] && this.grid[0][2] === this.grid[2][0]) {
+      if (this.grid[0][2] === 'X') {
+        this.winner = 'X';
+      } else if (this.grid[0][2] === 'O') {
+        this.winner = 'O';
+      }
+    }
+  }
+
   checkWinConditions() {
     this.checkHorizontalWin();
+    this.checkVerticalWin();
+    this.checkDiagonalWin();
     if (this.winner) {
       console.log(`${this.winner} Wins!`)
     }
