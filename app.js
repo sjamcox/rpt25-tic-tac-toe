@@ -39,6 +39,18 @@ class Board {
     });
   }
 
+  checkVerticalWin() {
+    this.grid.forEach((row, i) => {
+      if (this.grid[0][i] === this.grid[1][i] && this.grid[0][i] === this.grid[2][i]) {
+        if (this.grid[0][i] === 'X') {
+          this.winner = 'X';
+        } else if (this.grid[0][i] === 'O') {
+          this.winner = 'O';
+        }
+      }
+    });
+  }
+
   checkWinConditions() {
     this.checkHorizontalWin();
     if (this.winner) {
