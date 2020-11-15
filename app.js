@@ -20,8 +20,12 @@ class Board {
       row.setAttribute('style', 'display: flex;')
       r.forEach(element => {
         let box = document.createElement('div');
+        box.setAttribute('class', 'box')
         box.setAttribute('style', 'padding: 20px; border: 1px solid #cccccc;')
         box.innerHTML = element;
+          box.addEventListener('click', () => {
+            console.log('clicked');
+          })
         row.appendChild(box);
       })
       board.appendChild(row);
