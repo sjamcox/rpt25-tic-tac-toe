@@ -17,9 +17,11 @@ class Board {
     this.grid.forEach((r, i) => {
       let row = document.createElement('div');
       row.setAttribute('class', 'row')
-      r.forEach(cell => {
+      row.setAttribute('style', 'display: flex;')
+      r.forEach(element => {
         let box = document.createElement('div');
-        box.innerHTML = cell;
+        box.setAttribute('style', 'padding: 20px; border: 1px solid #cccccc;')
+        box.innerHTML = element;
         row.appendChild(box);
       })
       board.appendChild(row);
