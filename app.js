@@ -1,4 +1,5 @@
-const app = document.getElementById('app')
+const app = document.getElementById('app');
+const button = document.getElementById('reset');
 
 class Board {
 
@@ -114,5 +115,7 @@ class Board {
   }
 }
 
+
 let game = new Board();
 game.render();
+button.addEventListener('click', () => game.reset());
