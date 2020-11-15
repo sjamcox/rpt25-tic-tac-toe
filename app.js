@@ -77,6 +77,17 @@ class Board {
     }
   }
 
+  reset() {
+    this.grid = [
+      ['','',''],
+      ['','',''],
+      ['','','']
+    ];
+    this.next = 'X';
+    this.winner = null;
+    this.render();
+  }
+
   render() {
     app.innerHTML = '';
     let board = document.createElement('div');
