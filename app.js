@@ -31,7 +31,7 @@ class Board {
       r.forEach(element => {
         let box = document.createElement('div');
         box.setAttribute('class', 'box')
-        box.setAttribute('style', 'padding: 20px; border: 1px solid #cccccc;')
+        box.setAttribute('style', 'width: 15px; height: 15px; padding: 50px; border: 1px solid #cccccc;')
         box.innerHTML = element;
           box.addEventListener('click', (e) => {
             this.handleClick(e);
