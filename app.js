@@ -1,5 +1,6 @@
 const app = document.getElementById('app');
 const button = document.getElementById('reset');
+const winner = document.getElementById('winner');
 
 class Board {
 
@@ -69,14 +70,30 @@ class Board {
     }
   }
 
+  checkTie() {
+    let allBoxesFilled = true;
+    this.grid.forEach(row => {
+      row.forEach(el => {
+        if (el === '') {
+          allBoxesFilled = false;
+        }
+      })
+    })
+    if (allBoxesFilled) {
+      this.winner = 'Nobody';
+    }
+  }
+
   checkWinConditions() {
+    this.checkTie();
     this.checkHorizontalWin();
     this.checkVerticalWin();
     this.checkDiagonalWin();
     if (this.winner) {
-      console.log(`${this.winner} Wins!`)
+      winner.innerText = `${this.winner} Wins!`;
     }
   }
+
 
   reset() {
     this.grid = [
@@ -86,6 +103,7 @@ class Board {
     ];
     this.next = 'X';
     this.winner = null;
+    winner.innerText = '';
     this.render();
   }
 
