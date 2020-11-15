@@ -4,10 +4,20 @@ class Board {
 
   constructor() {
     this.grid = [
-      ['X','X','X'],
-      ['X','X','X'],
-      ['X','X','X']
+      ['','',''],
+      ['','',''],
+      ['','','']
     ];
+    this.next = 'X'
+  }
+
+  updateNext() {
+    this.next === 'X' ? this.next = 'O' : this.next = 'X';
+  }
+
+  handleClick(e) {
+    e.target.innerText = this.next;
+    this.updateNext();
   }
 
   render() {
@@ -23,8 +33,8 @@ class Board {
         box.setAttribute('class', 'box')
         box.setAttribute('style', 'padding: 20px; border: 1px solid #cccccc;')
         box.innerHTML = element;
-          box.addEventListener('click', () => {
-            console.log('clicked');
+          box.addEventListener('click', (e) => {
+            this.handleClick(e);
           })
         row.appendChild(box);
       })
